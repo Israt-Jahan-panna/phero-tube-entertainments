@@ -21,7 +21,7 @@ const handleNodeBlogs = async (categoryId) => {
         console.log(videos);
  const div = document.createElement("div")
         div.innerHTML= `  
-        <div class="card card-compact w-96 bg-base-100 shadow-xl h-[400px]">
+        <div class="card card-compact  bg-base-100 shadow-xl h-[360px]">
         <img class="h-52" src=${videos.thumbnail} alt="">
                     <div class="card-body">
                    <div class="flex flex-row gap-3">
