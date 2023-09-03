@@ -44,9 +44,14 @@ const handleNodeBlogs = async (categoryId) => {
         cardContainer.appendChild(div);
     });
 
-   
+
     console.log(data.data)
 };
+const blogsButton = document.getElementById('blogs-button');
+const blogsDiv = document.getElementById('blogs-div');
+blogsButton.addEventListener("click",function(){
+    window.location.href = "blogs.html";
+});
 
-handleCategory();
+handleCategory();A
 handleNodeBlogs("1000")
