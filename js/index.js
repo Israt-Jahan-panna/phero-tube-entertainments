@@ -10,7 +10,7 @@ data.data.forEach((category) =>{
     tabContainer.appendChild(div)
 });
 
-console.log(data.data);
+// console.log(data.data);
 };
 
 const handleNodeBlogs = async (categoryId) => {
@@ -18,8 +18,26 @@ const handleNodeBlogs = async (categoryId) => {
     const cardContainer = document.getElementById('card-container')
     cardContainer.innerHTML = "";
     const data = await response.json();
-    data.data.forEach((videos)=> {
-        console.log(videos);
+    const trimedData = data.data;
+    if(trimedData.length === 0){
+        const noData = document.getElementById('no-data');
+        noData.classList.remove('hidden')
+    }
+    else{
+        const noData = document.getElementById('no-data');
+        noData.classList.add('hidden')
+    }
+    console.log(trimedData);
+    const imgIcon = ' <img class="h-6 w-6 img" src="./blue.jpg" alt="">'
+    
+    trimedData.forEach((videos)=> {
+        // console.log(videos);
+        let time = videos.others.posted_date; 
+let hours = Math.floor(time / 3600);
+let minutes = Math.floor((time % 3600) / 60);
+
+let formattedTime = `${hours} hrs and ${minutes} min ago`;
+console.log(formattedTime)
  const div = document.createElement("div")
         div.innerHTML= `  
         <div class="card card-compact  bg-base-100 shadow-xl h-[370px]">
@@ -31,11 +49,11 @@ const handleNodeBlogs = async (categoryId) => {
                         <div class="flex flex-row">
                             <h2 class="card-title font-bold">${videos.title}</h2>
                             
-                            <img class="h-6 w-6" src=${videos.others.verified } alt="">
+                           ${videos.authors[0].verified === true? imgIcon : ''}
                         </div>
                         <h4 class="text-gray-400">${videos.authors[0].profile_name} alt</h4>
                         <p class="text-gray-400">${videos.others.views} </p>
-                        <p class="text-gray-400 position-absolute ">${videos.others.posted_date} </p>
+                        <p class=" position absolute -mt-[120px] ml-56 text-gray-400 bg-black"> ${videos.others.formattedTime === true ? } </p>
                         </div>
                    </div> 
                   </div>
@@ -45,7 +63,7 @@ const handleNodeBlogs = async (categoryId) => {
     });
 
 
-    console.log(data.data)
+    // console.log(data.data)
 };
 const blogsButton = document.getElementById('blogs-button');
 const blogsDiv = document.getElementById('blogs-div');
@@ -53,5 +71,5 @@ blogsButton.addEventListener("click",function(){
     window.location.href = "blogs.html";
 });
 
-handleCategory();A
+handleCategory();
 handleNodeBlogs("1000")
