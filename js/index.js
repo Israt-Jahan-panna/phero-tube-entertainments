@@ -32,11 +32,14 @@ const handleNodeBlogs = async (categoryId) => {
     
     trimedData.forEach((videos)=> {
         // console.log(videos);
-        let time = videos.others.posted_date; 
+let time = videos.others.posted_date; 
 let hours = Math.floor(time / 3600);
 let minutes = Math.floor((time % 3600) / 60);
 
 let formattedTime = `${hours} hrs and ${minutes} min ago`;
+
+console.log(videos.others.posted_date)
+
 console.log(formattedTime)
  const div = document.createElement("div")
         div.innerHTML= `  
@@ -53,7 +56,7 @@ console.log(formattedTime)
                         </div>
                         <h4 class="text-gray-400">${videos.authors[0].profile_name} alt</h4>
                         <p class="text-gray-400">${videos.others.views} </p>
-                        <p class=" position absolute -mt-[120px] ml-56 text-gray-400 bg-black"> ${videos.others.formattedTime === true ? } </p>
+                        <p class=" position absolute -mt-[120px] ml-56 text-gray-400 bg-black"> ${ videos.others.posted_date  ? formattedTime : '' } </p>
                         </div>
                    </div> 
                   </div>
