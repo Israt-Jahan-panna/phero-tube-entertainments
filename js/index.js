@@ -57,7 +57,7 @@ console.log(formattedTime)
                         </div>
                         
                         <p class="text-gray-400">${videos.others.views} </p>
-                        <p class=" position absolute -mt-[120px] ml-56 text-gray-400 bg-black"> ${ videos.others.posted_date  ? formattedTime : '' } </p>
+                        <p class=" ${videos.others.posted_date ?  'position absolute top-40 right-1 text-gray-400 bg-black text-xs py-2 px-3 rounded-md': ''} "> ${ videos.others.posted_date  ? formattedTime : '' } </p>
                         </div>
                    </div> 
                   </div>
