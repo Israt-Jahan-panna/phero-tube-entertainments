@@ -49,12 +49,13 @@ console.log(formattedTime)
                    <div class="flex flex-row gap-3">
                     <img class="profile_image" src= ${videos.authors[0].profile_picture} alt="">
                     <div>
+                    <h4 class=" card-title font-bold">${videos.title} alt</h4>
                         <div class="flex flex-row">
-                            <h2 class="card-title font-bold">${videos.title}</h2>
+                            <h2 class="text-gray-400">${videos.authors[0].profile_name}</h2>
                             
                            ${videos.authors[0].verified === true? imgIcon : ''}
                         </div>
-                        <h4 class="text-gray-400">${videos.authors[0].profile_name} alt</h4>
+                        
                         <p class="text-gray-400">${videos.others.views} </p>
                         <p class=" position absolute -mt-[120px] ml-56 text-gray-400 bg-black"> ${ videos.others.posted_date  ? formattedTime : '' } </p>
                         </div>
